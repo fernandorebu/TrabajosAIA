@@ -1288,34 +1288,32 @@ if os.path.exists(ruta_base):
 # EJEMPLOS DE PRUEBA
 # ********************************************************************************
 
-# *********** DESCOMENTAR A PARTIR DE AQUÍ
+print("************ PRUEBAS EJERCICIO 1:")
+print("**********************************\n")
+Xe_votos,Xp_votos,ye_votos,yp_votos=particion_entr_prueba(X_votos,y_votos,test=1/3)
+print("Partición votos: ",y_votos.shape[0],ye_votos.shape[0],yp_votos.shape[0])
+print("Proporción original en votos: ",np.unique(y_votos,return_counts=True))
+print("Estratificación entrenamiento en votos: ",np.unique(ye_votos,return_counts=True))
+print("Estratificación prueba en votos: ",np.unique(yp_votos,return_counts=True))
+print("\n")
 
-#print("************ PRUEBAS EJERCICIO 1:")
-#print("**********************************\n")
-#Xe_votos,Xp_votos,ye_votos,yp_votos=particion_entr_prueba(X_votos,y_votos,test=1/3)
-#print("Partición votos: ",y_votos.shape[0],ye_votos.shape[0],yp_votos.shape[0])
-#print("Proporción original en votos: ",np.unique(y_votos,return_counts=True))
-#print("Estratificación entrenamiento en votos: ",np.unique(ye_votos,return_counts=True))
-#print("Estratificación prueba en votos: ",np.unique(yp_votos,return_counts=True))
-#print("\n")
+Xev_cancer,Xp_cancer,yev_cancer,yp_cancer=particion_entr_prueba(X_cancer,y_cancer,test=0.2)
+print("Proporción original en cáncer: ", np.unique(y_cancer,return_counts=True))
+print("Estratificación entr-val en cáncer: ",np.unique(yev_cancer,return_counts=True))
+print("Estratificación prueba en cáncer: ",np.unique(yp_cancer,return_counts=True))
+Xe_cancer,Xv_cancer,ye_cancer,yv_cancer=particion_entr_prueba(Xev_cancer,yev_cancer,test=0.2)
+print("Estratificación entrenamiento cáncer: ", np.unique(ye_cancer,return_counts=True))
+print("Estratificación validación cáncer: ",np.unique(yv_cancer,return_counts=True))
+print("\n")
 
-#Xev_cancer,Xp_cancer,yev_cancer,yp_cancer=particion_entr_prueba(X_cancer,y_cancer,test=0.2)
-#print("Proporción original en cáncer: ", np.unique(y_cancer,return_counts=True))
-#print("Estratificación entr-val en cáncer: ",np.unique(yev_cancer,return_counts=True))
-#print("Estratificación prueba en cáncer: ",np.unique(yp_cancer,return_counts=True))
-#Xe_cancer,Xv_cancer,ye_cancer,yv_cancer=particion_entr_prueba(Xev_cancer,yev_cancer,test=0.2)
-#print("Estratificación entrenamiento cáncer: ", np.unique(ye_cancer,return_counts=True))
-#print("Estratificación validación cáncer: ",np.unique(yv_cancer,return_counts=True))
-#print("\n")
-
-#Xe_credito,Xp_credito,ye_credito,yp_credito=particion_entr_prueba(X_credito,y_credito,test=0.4)
-#print("Estratificación entrenamiento crédito: ",np.unique(ye_credito,return_counts=True))
-#print("Estratificación prueba crédito: ",np.unique(yp_credito,return_counts=True))
-#print("\n\n\n")
+Xe_credito,Xp_credito,ye_credito,yp_credito=particion_entr_prueba(X_credito,y_credito,test=0.4)
+print("Estratificación entrenamiento crédito: ",np.unique(ye_credito,return_counts=True))
+print("Estratificación prueba crédito: ",np.unique(yp_credito,return_counts=True))
+print("\n\n\n")
 
 
-# print("************ PRUEBAS EJERCICIO 2:")
-# print("**********************************\n")
+print("************ PRUEBAS EJERCICIO 2:")
+print("**********************************\n")
 
 clf_titanic = ArbolDecision(max_prof=3,min_ejemplos_nodo_interior=5,n_atrs=3)
 clf_titanic.entrena(X_train_titanic, y_train_titanic)
