@@ -287,6 +287,31 @@ Xev_cancer,Xp_cancer,yev_cancer,yp_cancer=particion_entr_prueba(X_cancer,y_cance
 #  array([81, 91, 88]))
 # ------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ===============================================
 # EJERCICIO 2: IMPLEMENTACIÓN ÁRBOLES DE DECISIÓN
 # ===============================================
@@ -948,6 +973,31 @@ def rendimiento(clasif, X, y):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # =============================================
 # EJERCICIO 3: IMPLEMENTACIÓN DE RANDOM FORESTS
 # =============================================
@@ -1089,6 +1139,31 @@ class RandomForest:
         return np.array(resultado)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # =========================================
 # EJERCICIO 4: AJUSTANDO LOS CLASIFICADORES
 # =========================================
@@ -1142,6 +1217,8 @@ import os
 # 4.1 DATASET CRÉDITO
 # ---------------------
 
+# * X_train_credito, y_train_credito, X_test_credito, y_test_credito
+#   conteniendo el dataset de crédito con los atributos numñericos:
 # Cargamos el csv y separamos características (primeras 6 columnas) y etiqueta (última)
 df_credito = pd.read_csv("datos/credito.csv")
 X_credito_raw = df_credito.iloc[:, :-1].values
@@ -1155,16 +1232,15 @@ X_credito_enc = enc_credito.fit_transform(X_credito_raw)
 X_train_credito, X_test_credito, y_train_credito, y_test_credito = \
     particion_entr_prueba(X_credito_enc, y_credito_raw, test=0.2)
 
+
+
 # * X_train_adult, y_train_adult, X_test_adult, y_test_adult
 #   conteniendo el AdultDataset con los atributos numéricos:
 # ----------------------
 # 4.1 DATASET ADULT
 # ----------------------
-
 # Las 4 primeras columnas ya son numéricas; las que vienen después son categóricas.
-# ----------------------
-# 4.1 DATASET ADULT
-# ----------------------
+
 
 df_adult = pd.read_csv("datos/adultDataset.csv")   # con cabecera
 X_adult_raw = df_adult.iloc[:, :-1].values
@@ -1192,6 +1268,8 @@ X_train_adult, X_test_adult, y_train_adult, y_test_adult = \
     particion_entr_prueba(X_adult_enc, y_adult_raw, test=0.2)
 
 
+# * X_train_dg, y_train_dg, X_valid_dg, y_valid_dg, X_test_dg, y_test_dg
+#   conteniendo el dataset de los dígitos escritos a mano:
 # ----------------------
 # 4.1 DATASET DÍGITOS
 # ----------------------
@@ -1253,6 +1331,31 @@ if os.path.exists(ruta_base):
 # ----------------------------------------
 # 4.2 AJUSTE DE HIPERPARÁMETROS 
 # ----------------------------------------
+# En nuestra implementación de RandomForest tenemos los siguientes 
+# hiperparámetros: 
+
+# n_arboles
+# prop_muestras
+# min_ejemplos_nodo_interior
+# max_prof
+# n_atrs
+# prop_umbral
+
+# Se trata ahora de encontrar, en cada dataset, una buena combinación de valores para esos 
+# hiperparámetros, tratando de obtener un buen rendimiento de los clasificadores. Hacerlo
+# usando un conjunto de validación: según se ha visto en la teoría, esto consiste en particionar  
+# en entrenamiento, validación y prueba, entrenando por cada combinación de hiperparámetros 
+# con el conjunto de entrenamiento y evaluando el rendimiento en validación. El entrenamiento final 
+# con la mejor combinación ha de hacerse en la unión de entrenamiento y validación.
+    
+
+# NO ES NECESARIO ser demasiado exhaustivo, basta con probar algunas combinaciones, 
+# pero sí es importante describir el proceso realizado y las mejores combinaciones 
+# encontradas en cada caso. 
+# DEJAR ESTE APARTADO COMENTADO, para que no se ejecuten las pruebas realizadas cuando se cargue
+# el archivo. 
+
+# ----------------------------
 
 # El proceso de ajuste es el siguiente:
 # 1. Separamos en entrenamiento, validación y prueba
@@ -1284,9 +1387,45 @@ if os.path.exists(ruta_base):
 # rendimiento validación aprox. 0.80
 
 
+
+
+
+
+
+
+
+
+
 # ********************************************************************************
+# ********************************************************************************
+# ********************************************************************************
+# ********************************************************************************
+
 # EJEMPLOS DE PRUEBA
-# ********************************************************************************
+
+# LAS SIGUIENTES LLAMADAS SERÁN EJECUTADAS POR EL PROFESOR EL DÍA DE LA PRESENTACIÓN.
+# UNA VEZ IMPLEMENTADAS LAS DEFINICIONES Y FUNCIONES NECESARIAS
+# Y REALIZADOS LOS AJUSTES DE HIPERPARÁMETROS, 
+# DEJAR COMENTADA CUALQUIER LLAMADA A LAS FUNCIONES QUE SE TENGA EN ESTE ARCHIVO 
+# Y DESCOMENTAR LAS QUE VIENEN A CONTINUACIÓN.
+# UNA VEZ HECHO ESO, ENTREGAR TAMBIÉN UN ARCHIVO trabajo_aia_25_26_parte_I_sc.py
+# SIN COMENTARIOS AL CÓDIGO. 
+
+
+# EN EL APARTADO FINAL DE "RENDIMIENTOS FINALES RANDOM FOREST", USAR LA MEJOR COMBINACIÓN DE 
+# HIPERPARÁMETROS QUE SE HAYA OBTENIDO EN CADA CASO, EN LA FASE DE AJUSTE DEL EJERCICIO 4
+
+# El ARCHIVO trabajo_aia_23_24_parte_I_sc.py SERÁ CARGADO POR EL PROFESOR, 
+# TENIENDO EN LA MISMA CARPETA LOS ARCHIVOS OBTENIDOS
+# DESCOMPRIMIENDO datos_trabajo_aia.zip.
+# ES IMPORTANTE QUE LO QUE SE ENTREGA SE PUEDA CARGAR SIN ERRORES Y QUE SE EJECUTEN LOS 
+# EJEMPLOS QUE VIENEN A CONTINUACIÓN. SI ALGUNO DE LOS EJERCICIOS NO SE HA REALIZADO 
+# O DEVUELVE ALGÚN ERROR, DEJAR COMENTADOS LOS CORRESPONDIENTES EJEMPLOS, 
+# PARA EViTAR LOS ERRORES EN LA CARGA Y EJECUCIÓN.   
+
+
+
+# *********** DESCOMENTAR A PARTIR DE AQUÍ
 
 print("************ PRUEBAS EJERCICIO 1:")
 print("**********************************\n")
